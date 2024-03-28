@@ -1,4 +1,5 @@
 import numpy as np
+import h5py
 import tbmodels
 import pandas as pd
 
@@ -60,7 +61,7 @@ for efield in efield_list:
     with h5py.File(output_file, 'w') as f:
         f.create_dataset("efield", data=efield)
         f.create_dataset("bands_chosen", data = bands_chosen)
-        for ik, ik1, ih zip(np.arange(nkpt), k1, myham0):
+        for ik, ik1, ih in zip(np.arange(nkpt), k1, myham0):
             ih_tmp = apply_efield(ih,efield,z_pos_sym)
             h_ribbon = get_ribbon_ham(ih_tmp, orb_cut)
             eigvals, eigvecs = np.linalg.eigh(h_ribbon)
