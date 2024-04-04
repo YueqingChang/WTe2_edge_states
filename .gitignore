@@ -1,3 +1,6 @@
+# safe to delete... arising from Mac os
+*/.DS_Store
+
 # large hdf5 files
 *.hdf5
 
